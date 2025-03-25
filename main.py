@@ -26,4 +26,32 @@ def check_password():
     pw = data.get("password", "")
 
     # FIXME: to be implemented
-    return flask.jsonify({"valid": False, "reason": "Not implemented"}), 501
+
+    # Process password
+    lengthCheck = True
+    upperCheck = True
+    digitCheck = True
+    specialCheck = True
+    count = 0
+    for char in pw:
+        count += 1
+        if (char.isUpper()):
+            upperCheck = True
+        if (char.isDigit()):
+            digitCheck = True
+        if (char in "!@#$%^&*"):
+            specialCheck = True
+    if (count < 8 ):
+        lengthCheck = False
+    
+    # return result based on check
+    if (not lengthCheck):
+        return flask.jsonify({"valid": False, "reason": "Too short"}), 200
+    elif (not upperCheck):
+        return flask.jsonify({"valid": False, "reason": "No uppercase letter"}), 200
+    elif (not digitCheck):
+        return flask.jsonify({"valid": False, "reason": "No digit"}), 200
+    elif (not specialCheck):
+        return flask.jsonify({"valid": False, "reason": "No special character"}), 200
+    else:
+        return flask.jsonify({"valid": True, "reason": ""}), 200
