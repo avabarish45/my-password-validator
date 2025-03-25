@@ -35,9 +35,9 @@ def check_password():
     count = 0
     for char in pw:
         count += 1
-        if (char.isUpper()):
+        if (char.isupper()):
             upperCheck = True
-        if (char.isDigit()):
+        if (char.isdigit()):
             digitCheck = True
         if (char in "!@#$%^&*"):
             specialCheck = True
