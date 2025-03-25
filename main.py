@@ -41,8 +41,8 @@ def check_password():
             digitCheck = True
         if (char in "!@#$%^&*"):
             specialCheck = True
-    if (count < 8 ):
-        lengthCheck = False
+    if (count >= 8 ):
+        lengthCheck = True
     
     # return result based on check
     if (not lengthCheck):
