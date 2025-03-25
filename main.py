@@ -28,10 +28,10 @@ def check_password():
     # FIXME: to be implemented
 
     # Process password
-    lengthCheck = True
-    upperCheck = True
-    digitCheck = True
-    specialCheck = True
+    lengthCheck = False
+    upperCheck = False
+    digitCheck = False
+    specialCheck = False
     count = 0
     for char in pw:
         count += 1
